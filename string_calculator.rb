@@ -5,8 +5,14 @@ class StringCalculator
     # Splitting by commas or newlines
     num_arr = numbers.split(/,|\n/)
 
-    # Convert to integers and add up
-    num_arr.each { |num| sum += num.to_i }
+    # Convert into intergers and check for negative number and if not adds up
+    num_arr.each do |num|
+      if num.to_i < 0
+        raise "negative numbers not allowed"
+      end
+      sum += num.to_i
+    end
+    
     sum
   end
 end
