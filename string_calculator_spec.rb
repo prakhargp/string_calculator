@@ -23,7 +23,12 @@ describe "Add all the numbers in a string" do
 
   it "should raise an exception for negative numbers" do
     calc = StringCalculator.new
-    expect { calc.add("1\n-2,3") }.to raise_error("negative numbers not allowed -2")
+    expect { calc.add("1\n-2,3") }.to raise_error("negative numbers not allowed (-2)")
+  end
+
+  it "should raise an exception for negative numbers with numbers separated with commas" do
+    calc = StringCalculator.new
+    expect { calc.add("1\n-2,3, -4, -5\n6,-7") }.to raise_error("negative numbers not allowed (-2, -4, -5, -7)")
   end
 
 end
