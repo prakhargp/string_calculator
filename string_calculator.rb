@@ -8,11 +8,11 @@ class StringCalculator
     # Convert into intergers and check for negative number and if not adds up
     num_arr.each do |num|
       if num.to_i < 0
-        raise "negative numbers not allowed"
+        raise "negative numbers not allowed #{num.to_i}"
       end
       sum += num.to_i
     end
-    
+
     sum
   end
 end
