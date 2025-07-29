@@ -7,9 +7,13 @@ describe "Add all the numbers in a string" do
   end
 
   it "return sum with only one number in string" do
+    calc = StringCalculator.new
+    expect(calc.add("1")).to eq(1)
   end
 
   it "return sum with more than one number in string" do
+    calc = StringCalculator.new
+    expect(calc.add("1, 2")).to eq(3)
   end
 
 end
