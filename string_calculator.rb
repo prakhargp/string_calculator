@@ -2,15 +2,26 @@ class StringCalculator
   def add(numbers)
     return 0 if numbers.empty?
     sum = 0
-    # Splitting by commas or newlines
-    num_arr = numbers.split(/,|\n/)
+    delimiter = /,|\n/
 
-    # Convert into integers and check for negative number and if not adds up
+    # Extracting the numbers and delimiter if given
+    if numbers.start_with?("//")
+      delimiter, numbers = numbers.split("\n", 2)
+      delimiter = delimiter[2..-1]
+    end
+
+    # Splitting numbers string by the delimiter
+    num_arr = numbers.split(delimiter)
+
     negative_numbers = []
+
     num_arr.each do |num|
       num = num.to_i
+
+      # Collecting all negatives
       negative_numbers << num if num < 0
-      sum += num.to_i
+
+      sum += num
     end
 
     # If there are negative numbers, raise an exception
